@@ -1,7 +1,16 @@
-import './assets/main.css'
-
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 
-createApp(App).use(router).mount('#app')
+const app = createApp(App)
+
+router.beforeEach((to, from, next) => {
+  if (to.path === '/') {
+    next('/home') // Redirection vers /home
+  } else {
+    next()
+  }
+})
+
+app.use(router)
+app.mount('#app')

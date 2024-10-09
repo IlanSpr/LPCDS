@@ -1,15 +1,10 @@
 <template>
   <div class="theme-timer">
-    <button @click="$router.go(-1)" class="back-arrow">←</button>
-    <h2>{{ selectedCategory }}</h2>
-
-    <div v-if="!timerStarted">
-      <button @click="startTimer" class="start-timer-btn">Lancer le Timer</button>
+    <h1>{{ categoryName }}</h1>
+    <div class="timer" @click="startTimer">
+      <h2>{{ formattedTime }}</h2>
     </div>
-
-    <div v-if="timerStarted">
-      <p>{{ currentTimer }}s</p>
-    </div>
+    <button v-if="timer === 0" class="return-button" @click="returnToPhaseTwo">Retour</button>
   </div>
 </template>
 
@@ -17,54 +12,75 @@
 export default {
   data() {
     return {
-      selectedCategory: this.$route.params.category,
-      timerValue: localStorage.getItem('timerValue') || 90,
-      currentTimer: localStorage.getItem('timerValue') || 90,
-      timerStarted: false,
-      timerFinished: false,
-      intervalId: null
+      categoryName: this.$route.params.categoryName,
+      timer: 0,
+      interval: null
     }
+  },
+  computed: {
+    formattedTime() {
+      return this.timer < 10 ? `0${this.timer}` : this.timer
+    }
+  },
+  mounted() {
+    this.timer = parseInt(localStorage.getItem('phase2Timer')) || 90 // Set default value for phase2Timer
   },
   methods: {
     startTimer() {
-      this.timerStarted = true
-      this.intervalId = setInterval(() => {
-        if (this.currentTimer > 0) {
-          this.currentTimer--
+      if (this.interval) return // Prevent multiple intervals
+      this.interval = setInterval(() => {
+        if (this.timer > 0) {
+          this.timer--
         } else {
-          this.timerFinished = true
-          clearInterval(this.intervalId)
+          clearInterval(this.interval)
+          this.interval = null
         }
       }, 1000)
+    },
+    returnToPhaseTwo() {
+      this.$router.push('/phase-two')
     }
   },
   beforeUnmount() {
-    if (this.intervalId) {
-      clearInterval(this.intervalId)
-    }
+    clearInterval(this.interval)
   }
 }
 </script>
 
 <style scoped>
-.back-arrow {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  font-size: 24px;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
 .theme-timer {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 20px;
 }
-.start-timer-btn,
-.back-to-categories-btn {
-  margin-top: 20px;
+
+.timer {
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  font-size: 2rem;
+  cursor: pointer;
+  margin: 20px 0;
+  transition: background-color 0.3s;
+}
+
+.timer:hover {
+  background-color: #f0f0f0;
+}
+
+.return-button {
   padding: 10px 20px;
-  font-size: 18px;
+  font-size: 1.2rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.return-button:hover {
+  background-color: #0056b3;
 }
 </style>
