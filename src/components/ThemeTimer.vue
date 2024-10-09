@@ -38,6 +38,16 @@ export default {
       }, 1000)
     },
     returnToPhaseTwo() {
+      // Get the index of the selected theme
+      const phase2Themes = JSON.parse(localStorage.getItem('phase2Themes')) || []
+      const index = phase2Themes.findIndex((category) => category.name === this.categoryName)
+
+      // Set the selected theme to inactive
+      if (index !== -1) {
+        phase2Themes[index].active = false
+        localStorage.setItem('phase2Themes', JSON.stringify(phase2Themes))
+      }
+
       this.$router.push('/phase-two')
     }
   },

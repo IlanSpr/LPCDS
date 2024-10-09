@@ -1,43 +1,37 @@
 <template>
   <div>
-    <button @click="$router.go(-1)" class="back-arrow">←</button>
-    <h3>Catégorie : {{ selectedBox.label }}</h3>
-    <p>Choisir la difficulté :</p>
-    <button @click="selectDifficulty('Facile')">Facile (1 point)</button>
-    <button @click="selectDifficulty('Difficile')">Difficile (2 points)</button>
-    <button v-if="selectedBox.mystery" @click="selectDifficulty('Mystère')">
-      Mystère (3 points)
-    </button>
+    <h1>Choisir la difficulté</h1>
+    <div class="difficulty-container">
+      <div class="box" @click="selectDifficulty('facile')">Question facile</div>
+      <div class="box" @click="selectDifficulty('difficile')">Question difficile</div>
+    </div>
+    <button @click="goBack">Retour</button>
   </div>
 </template>
 
 <script>
 export default {
-  props: ['box'],
   methods: {
     selectDifficulty(difficulty) {
-      this.$router.push({
-        name: 'QuestionDisplay',
-        params: { box: this.box, difficulty }
-      })
+      localStorage.setItem('phase3Difficulty', difficulty)
+      this.$router.push({ name: 'QuestionDisplay' })
+    },
+    goBack() {
+      this.$router.push({ name: 'PhaseThree' })
     }
   }
 }
 </script>
 
 <style scoped>
-.back-arrow {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  font-size: 24px;
-  background: none;
-  border: none;
-  cursor: pointer;
+.difficulty-container {
+  display: flex;
+  justify-content: center;
 }
-button {
-  margin: 10px;
-  padding: 15px;
-  font-size: 18px;
+.box {
+  margin: 20px;
+  padding: 20px;
+  background-color: lightblue;
+  cursor: pointer;
 }
 </style>
