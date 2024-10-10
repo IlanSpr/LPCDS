@@ -12,7 +12,10 @@ export default {
 
 <style>
 #app {
+  font-family: Roboto, sans-serif;
   text-align: center;
-  padding: 20px;
+  padding: 10px;
+  background-color: lightblue;
+  min-height: 100vh;
 }
 </style>

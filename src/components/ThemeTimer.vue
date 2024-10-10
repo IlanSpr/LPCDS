@@ -1,10 +1,10 @@
 <template>
   <div class="theme-timer">
+    <button class="return-button" v-if="timer === 0" @click="returnToPhaseTwo">←</button>
     <h1>{{ categoryName }}</h1>
-    <div class="timer" @click="startTimer">
+    <div class="timer" @click="startTimer" :class="{ expired: timer === 0 }">
       <h2>{{ formattedTime }}</h2>
     </div>
-    <button v-if="timer === 0" class="return-button" @click="returnToPhaseTwo">Retour</button>
   </div>
 </template>
 
@@ -38,11 +38,9 @@ export default {
       }, 1000)
     },
     returnToPhaseTwo() {
-      // Get the index of the selected theme
       const phase2Themes = JSON.parse(localStorage.getItem('phase2Themes')) || []
       const index = phase2Themes.findIndex((category) => category.name === this.categoryName)
 
-      // Set the selected theme to inactive
       if (index !== -1) {
         phase2Themes[index].active = false
         localStorage.setItem('phase2Themes', JSON.stringify(phase2Themes))
@@ -63,34 +61,44 @@ export default {
   flex-direction: column;
   align-items: center;
   padding: 20px;
+  position: relative; /* Set position relative for the button */
+}
+
+.return-button {
+  position: absolute; /* Position the button in the top-left corner */
+  top: 10px;
+  left: 10px;
+  padding: 10px 20px;
+  font-size: 2rem;
+  background-color: transparent; /* Make button transparent */
+  color: white; /* White text color */
+  border: none;
+  cursor: pointer;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Shadow effect */
+}
+
+h1,
+h2 {
+  color: white; /* Text color */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow */
 }
 
 .timer {
-  border: 2px solid #ccc;
-  border-radius: 10px;
+  background-color: transparent; /* Make the timer transparent */
+  border: none; /* Remove border */
   padding: 20px;
   font-size: 2rem;
   cursor: pointer;
   margin: 20px 0;
-  transition: background-color 0.3s;
+  transition: cursor 0.3s; /* Change cursor on hover */
 }
 
 .timer:hover {
-  background-color: #f0f0f0;
+  cursor: pointer; /* Change cursor on hover */
 }
 
-.return-button {
-  padding: 10px 20px;
-  font-size: 1.2rem;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.return-button:hover {
-  background-color: #0056b3;
+.timer h2 {
+  color: white; /* Timer text color */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow for effect */
 }
 </style>

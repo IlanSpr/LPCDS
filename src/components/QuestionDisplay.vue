@@ -1,17 +1,12 @@
 <template>
   <div class="question-display">
-    <button v-if="timer === 0" class="return-button" @click="handleTimerEnd">Retour</button>
-    <div class="middle-container">
-      <div class="green-background"></div>
-      <div class="theme-box">
-        <span>{{ theme.name }}</span>
-      </div>
+    <button v-if="timer === 0" class="return-button" @click="handleTimerEnd">←</button>
+    <div class="theme-box">
+      <span>{{ theme.name }}</span>
     </div>
-    <div class="bottom-container">
-      <div class="question-box">
-        <span>{{ question }}</span>
-      </div>
-      <div class="timer">{{ timer }}</div>
+    <div class="timer">{{ timer }}</div>
+    <div class="question-box">
+      <span>{{ question }}</span>
     </div>
   </div>
 </template>
@@ -87,41 +82,39 @@ export default {
   flex-direction: column;
   align-items: center; /* Center align items */
   height: 100vh; /* Full height */
-  justify-content: space-between; /* Space items vertically */
+  justify-content: center; /* Center items vertically */
+  background-color: #add8e6; /* Light blue background */
 }
 
 .return-button {
-  margin-top: 20px; /* Space from the top */
-}
-
-.middle-container {
-  display: flex;
-  align-items: center; /* Center align vertically */
-}
-
-.green-background {
-  width: 150px; /* Set width for the green background */
-  height: 150px; /* Set height for the green background */
-  background-color: green; /* Set green background */
-  margin-right: 20px; /* Space from the theme box */
+  position: absolute; /* Absolute positioning */
+  top: 20px; /* Position from the top */
+  left: 20px; /* Position from the left */
+  font-size: 2em; /* Font size */
+  background: none; /* No background */
+  border: none; /* No border */
+  color: white; /* White text */
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.7); /* Text shadow */
 }
 
 .theme-box {
   text-align: center;
-  font-size: 20px;
-}
-
-.bottom-container {
-  text-align: center;
-  margin-bottom: 20px; /* Space from the bottom */
-}
-
-.question-box {
-  font-size: 24px;
-  margin-bottom: 10px; /* Space between question and timer */
+  font-size: 24px; /* Increased font size */
+  color: white; /* White text */
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.7); /* Text shadow */
+  margin-bottom: 20px; /* Space below the theme */
 }
 
 .timer {
-  font-size: 48px;
+  font-size: 48px; /* Timer font size */
+  color: white; /* White text */
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.7); /* Text shadow */
+  margin: 20px 0; /* Space around the timer */
+}
+
+.question-box {
+  font-size: 24px; /* Increased font size */
+  color: white; /* White text */
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.7); /* Text shadow */
 }
 </style>

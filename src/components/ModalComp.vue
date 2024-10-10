@@ -1,12 +1,13 @@
 <template>
   <div class="modal-overlay" @click.self="close">
-    <div class="modal">
+    <div class="modal-content">
       <header>
         <slot name="header"></slot>
+        <button class="close-button" @click="close">&times;</button>
       </header>
-      <div class="modal-body">
+      <main>
         <slot name="body"></slot>
-      </div>
+      </main>
       <footer>
         <slot name="footer"></slot>
       </footer>
@@ -16,10 +17,10 @@
 
 <script>
 export default {
-  name: 'ModalComp',
-  methods: {
-    close() {
-      this.$emit('close')
+  props: {
+    close: {
+      type: Function,
+      required: true
     }
   }
 }
@@ -32,28 +33,32 @@ export default {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.modal {
+.modal-content {
   background: white;
-  padding: 20px;
   border-radius: 8px;
-  width: 90%;
-  max-width: 500px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 400px; /* Largeur augmentée pour plus de confort */
+  position: relative; /* Pour le positionnement du bouton de fermeture */
 }
-header {
-  font-size: 1.5em;
-  margin-bottom: 10px;
-}
-.modal-body {
-  margin-bottom: 20px;
+.close-button {
+  position: absolute; /* Positionne le bouton x en haut à droite */
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
 }
 footer {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between; /* Pour l'espace entre les boutons */
+}
+button {
+  margin-left: 10px; /* Espace entre les boutons */
 }
 </style>
