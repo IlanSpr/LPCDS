@@ -18,7 +18,7 @@ export default {
       theme: JSON.parse(localStorage.getItem('phase3SelectedTheme')) || {},
       difficulty: localStorage.getItem('phase3Difficulty'),
       question: '', // Initially empty
-      timer: 10 // Example timer value; adjust as needed
+      timer: localStorage.getItem('phase3Timer') || 10 // Default timer value
     }
   },
   mounted() {
@@ -92,6 +92,7 @@ export default {
   left: 20px; /* Position from the left */
   font-size: 2em; /* Font size */
   background: none; /* No background */
+  cursor: pointer;
   border: none; /* No border */
   color: white; /* White text */
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.7); /* Text shadow */

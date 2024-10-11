@@ -5,6 +5,7 @@
     <h1 class="header">Gestion des Phases</h1>
 
     <phase-2-admin />
+    <div style="margin-top: 25px"></div>
     <phase-3-admin />
   </div>
 </template>

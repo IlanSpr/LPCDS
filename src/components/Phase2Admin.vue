@@ -4,16 +4,19 @@
 
     <h3>Catégories existantes :</h3>
     <div class="category-grid">
-      <div v-for="(category, index) in phase2Themes" :key="index" class="category-card">
-        <span>{{ category.name }}</span>
-        <span>{{ category.active ? 'Actif' : 'Inactif' }}</span>
+      <div
+        v-for="(category, index) in phase2Themes"
+        :key="index"
+        class="category-card"
+        :class="{ inactive: !category.active }"
+      >
+        <span class="category-name">{{ category.name }}</span>
         <div class="category-actions">
           <button @click="forceCategoryActive(index)">Activer</button>
           <button @click="deleteCategory(index)">x</button>
         </div>
       </div>
 
-      <!-- Carte pour Ajouter Catégorie -->
       <div class="category-card add-category-card" @click="showAddCategoryPopup = true">
         <span>Ajouter une catégorie</span>
       </div>
@@ -30,13 +33,12 @@
       <span v-if="timerMessage" class="timer-message">{{ timerMessage }}</span>
     </div>
 
-    <!-- Popup pour Ajouter Catégorie -->
     <modal v-if="showConfirmClearPhase2" :close="() => (showConfirmClearPhase2 = false)">
       <template #header>
         <h1>Confirmation</h1>
       </template>
       <template #body>
-        <p>Supprimer toutes les catégories ?</p>
+        <p>Supprimer tous les élélments de la phase 2 ?</p>
       </template>
       <template #footer>
         <button @click="clearAllPhase2">Confirmer</button>
@@ -97,6 +99,7 @@ export default {
     clearAllPhase2() {
       this.phase2Themes = []
       localStorage.removeItem('phase2Themes')
+      this.showConfirmClearPhase2 = false // Ferme le modal après avoir vidé la liste
     },
     confirmClearAllPhase2() {
       this.showConfirmClearPhase2 = true
@@ -104,8 +107,8 @@ export default {
     saveTimerValue(timerType, value) {
       this[timerType] = value
       localStorage.setItem(timerType, value)
-      this.timerMessage = 'Durée du timer enregistrée' // Afficher le message après enregistrement
-      setTimeout(() => (this.timerMessage = ''), 2000) // Masquer le message après 3 secondes
+      this.timerMessage = 'Durée du timer enregistrée'
+      setTimeout(() => (this.timerMessage = ''), 2000)
     }
   }
 }
@@ -114,15 +117,15 @@ export default {
 <style scoped>
 .phase-admin {
   padding: 20px;
-  background: rgba(227, 242, 253, 0.8); /* Fond transparent */
+  background: rgba(227, 242, 253, 0.8);
   border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Ombre légère */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 h2,
 h3 {
   color: white;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Ombre sur le texte */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
   text-align: left;
 }
 
@@ -137,13 +140,18 @@ h3 {
   background-color: white;
   border: 1px solid #ccc;
   border-radius: 10px;
-  padding: 10px; /* Réduit l'espace */
+  padding: 10px;
   display: flex;
-  flex-direction: column; /* Aligne verticalement */
-  justify-content: space-between; /* Assure l'espace entre les éléments */
-  height: 120px; /* Hauteur réduite */
+  flex-direction: column;
+  justify-content: space-between;
+  height: 60px;
   min-width: 120px;
   max-width: 180px;
+  text-align: center; /* Centre le nom de la catégorie */
+}
+
+.inactive {
+  opacity: 0.5; /* Grise les cartes inactives */
 }
 
 .add-category-card {
@@ -161,13 +169,13 @@ h3 {
 
 .button-container {
   display: flex;
-  justify-content: flex-end; /* Aligne à droite */
+  justify-content: flex-end;
 }
 
 .timer-group {
   display: flex;
-  align-items: center; /* Aligne tous les éléments sur la même ligne */
-  margin-top: 20px; /* Espacement entre le groupe de timer et les catégories */
+  align-items: center;
+  margin-top: 20px;
 }
 
 .timer-label {
@@ -176,33 +184,34 @@ h3 {
 }
 
 button {
-  background-color: white; /* Boutons blancs */
-  color: black; /* Texte noir */
+  background-color: white;
+  color: black;
   border: 1px solid #ccc;
   border-radius: 4px;
   padding: 4px 8px;
   cursor: pointer;
   transition: background-color 0.3s;
-  margin-left: 10px; /* Espace entre le bouton et l'input */
+  margin-left: 10px;
 }
 
 button:hover {
-  background-color: #e0e0e0; /* Couleur de survol */
+  background-color: #e0e0e0;
 }
 
 input {
   padding: 3px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  width: 60px; /* Largeur de l'input */
-  margin-left: 10px; /* Espace entre le label et l'input */
+  width: 60px;
+  margin-left: 10px;
 }
+
 .wide-input {
-  width: 200px; /* Largeur de l'input */
+  width: 200px;
 }
 
 .timer-message {
-  margin-left: 20px; /* Espace entre le message et le reste des éléments */
-  color: green; /* Couleur du message */
+  margin-left: 20px;
+  color: green;
 }
 </style>

@@ -38,15 +38,17 @@ export default {
   align-items: center;
   justify-content: center;
 }
+
 .modal-content {
   background: white;
   border-radius: 8px;
   padding: 20px;
-  width: 400px; /* Largeur augmentée pour plus de confort */
-  position: relative; /* Pour le positionnement du bouton de fermeture */
+  width: 400px;
+  position: relative;
 }
+
 .close-button {
-  position: absolute; /* Positionne le bouton x en haut à droite */
+  position: absolute;
   top: 10px;
   right: 10px;
   background: transparent;
@@ -54,11 +56,25 @@ export default {
   font-size: 20px;
   cursor: pointer;
 }
+
 footer {
   display: flex;
-  justify-content: space-between; /* Pour l'espace entre les boutons */
+  justify-content: space-between;
 }
+
+/* Style pour les boutons */
 button {
-  margin-left: 10px; /* Espace entre les boutons */
+  background-color: white;
+  color: black;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 4px 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-left: 10px;
+}
+
+button:hover {
+  background-color: #e0e0e0;
 }
 </style>
