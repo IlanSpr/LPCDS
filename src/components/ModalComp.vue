@@ -22,6 +22,14 @@ export default {
       type: Function,
       required: true
     }
+  },
+  mounted() {
+    // Prevent scrolling when modal is open
+    document.body.style.overflow = 'hidden'
+  },
+  beforeUnmount() {
+    // Restore scrolling when modal is closed
+    document.body.style.overflow = ''
   }
 }
 </script>

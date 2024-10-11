@@ -15,20 +15,18 @@
         />
 
         <label>Question Facile :</label>
-        <input
+        <textarea
           v-model="localTheme.easyQuestion"
           class="wide-input"
-          type="text"
           placeholder="Question Facile"
-        />
+        ></textarea>
 
         <label>Question Difficile :</label>
-        <input
+        <textarea
           v-model="localTheme.hardQuestion"
           class="wide-input"
-          type="text"
           placeholder="Question Difficile"
-        />
+        ></textarea>
       </div>
     </template>
 
@@ -86,6 +84,7 @@ export default {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box; /* Ensure padding is included in width */
+  font-family: 'Roboto', sans-serif; /* Use Roboto font for inputs */
 }
 
 .button-group {

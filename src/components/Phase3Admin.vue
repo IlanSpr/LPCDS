@@ -132,7 +132,7 @@ export default {
     saveTimerValue(timerType, value) {
       this[timerType] = value
       localStorage.setItem(timerType, value)
-      this.timerMessage = 'Durée enregistrée!'
+      this.timerMessage = 'Durée du timer enregistrée!'
       setTimeout(() => {
         this.timerMessage = ''
       }, 2000)
