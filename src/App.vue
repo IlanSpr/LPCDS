@@ -18,4 +18,11 @@ export default {
   background-color: lightblue;
   min-height: 100vh;
 }
+/* Global settings to prevent scrolling */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden; /* Ensure no scrolling on the page */
+}
 </style>

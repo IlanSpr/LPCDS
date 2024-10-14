@@ -1,5 +1,5 @@
 <template>
-  <div class="admin-page">
+  <div class="admin-page scrollable-content">
     <router-link to="/home" class="back-button"> <i class="fas fa-arrow-left"></i> ← </router-link>
 
     <h1 class="header">Gestion des Phases</h1>
@@ -25,25 +25,33 @@ export default {
 <style scoped>
 .admin-page {
   padding: 20px;
+  max-height: 100vh; /* Limite la hauteur à la taille de l'écran */
+  overflow-y: auto; /* Active le défilement vertical */
+}
+
+.scrollable-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Optionnel, pour espacer les éléments */
 }
 
 .back-button {
-  position: absolute; /* Position the button in the top-left corner */
+  position: absolute; /* Position du bouton en haut à gauche */
   top: 10px;
   left: 10px;
   padding: 10px 20px;
   font-size: 2rem;
-  background-color: transparent; /* Make button transparent */
-  color: white; /* White text color */
+  background-color: transparent; /* Bouton transparent */
+  color: white; /* Texte blanc */
   border: none;
   cursor: pointer;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Shadow effect */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   transition: background-color 0.3s;
-  text-decoration: none; /* Remove underline */
+  text-decoration: none;
 }
 
 .header {
-  color: white; /* Texte en blanc */
-  text-shadow: 2px 2px 2px black; /* Ombre de 2px */
+  color: white; /* Texte blanc */
+  text-shadow: 2px 2px 2px black; /* Ombre du texte */
 }
 </style>

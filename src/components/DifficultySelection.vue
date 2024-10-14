@@ -1,9 +1,22 @@
 <template>
   <div class="difficulty-selection">
-    <router-link to="/home" class="back-button">←</router-link>
-    <div class="difficulty-container">
-      <BaseButton @click="selectDifficulty('facile')" text="Question facile" />
-      <BaseButton @click="selectDifficulty('difficile')" text="Question difficile" />
+    <router-link to="/phase-three" class="back-button">←</router-link>
+    <div
+      class="difficulty-container"
+      :class="{ 'single-button': (showEasy && !showHard) || (!showEasy && showHard) }"
+    >
+      <BaseButton
+        v-if="showEasy"
+        @click="selectDifficulty('facile')"
+        text="Question facile"
+        class="difficulty-button"
+      />
+      <BaseButton
+        v-if="showHard"
+        @click="selectDifficulty('difficile')"
+        text="Question difficile"
+        class="difficulty-button"
+      />
     </div>
   </div>
 </template>
@@ -15,13 +28,29 @@ export default {
   components: {
     BaseButton
   },
+  data() {
+    return {
+      showEasy: false,
+      showHard: false
+    }
+  },
+  mounted() {
+    this.checkQuestions()
+  },
   methods: {
+    checkQuestions() {
+      const index = localStorage.getItem('phase3SelectedThemeIndex')
+      const phase3Themes = JSON.parse(localStorage.getItem('phase3Themes'))
+
+      if (phase3Themes && index !== null) {
+        const selectedTheme = phase3Themes[index]
+        this.showEasy = !!selectedTheme.easyQuestion?.trim() // Show if easy question is non-empty
+        this.showHard = !!selectedTheme.hardQuestion?.trim() // Show if hard question is non-empty
+      }
+    },
     selectDifficulty(difficulty) {
       localStorage.setItem('phase3Difficulty', difficulty)
       this.$router.push({ name: 'QuestionDisplay' })
-    },
-    goBack() {
-      this.$router.push({ name: 'PhaseThree' })
     }
   }
 }
@@ -29,43 +58,59 @@ export default {
 
 <style scoped>
 .difficulty-selection {
-  padding: 100px;
+  width: 100vw; /* Full viewport width */
+  height: 100vh; /* Full viewport height */
+  position: fixed;
+  top: 0;
+  left: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh; /* Fixer la hauteur pour éviter le scroll */
-  overflow: hidden; /* Éviter le défilement */
+  justify-content: center;
+  background-color: #add8e6; /* Light blue background */
 }
 
 .back-button {
-  position: absolute; /* Positionner le bouton en haut à gauche */
+  position: absolute;
   top: 10px;
   left: 10px;
   padding: 10px 20px;
   font-size: 2rem;
-  background-color: transparent; /* Fond transparent */
-  color: white; /* Couleur du texte */
+  background-color: transparent;
+  color: white;
   border: none;
   cursor: pointer;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Ombre du texte */
-  transition: background-color 0.3s;
-  text-decoration: none; /* Retirer le soulignement */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  text-decoration: none;
 }
 
 .difficulty-container {
-  display: flex; /* Afficher les boutons en ligne */
-  justify-content: space-around; /* Espacement entre les boutons */
-  width: 100%; /* Prendre toute la largeur */
-  margin-top: 50px; /* Marge au-dessus des boutons */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px; /* Add space between buttons */
 }
 
-.base-button {
-  width: 150px; /* Largeur fixe pour les boutons */
-  height: 150px; /* Hauteur fixe pour les boutons */
-  font-size: 24px; /* Taille de texte agrandie */
-  text-align: center; /* Centrer le texte */
-  display: flex; /* Centrer le contenu verticalement */
-  justify-content: center; /* Centrer horizontalement */
-  align-items: center; /* Centrer verticalement */
+.difficulty-button {
+  width: 300px;
+  height: 150px; /* Increased button height */
+  font-size: 2rem; /* Increased font size */
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s; /* Smooth hover effect */
+}
+
+.difficulty-button:hover {
+  transform: scale(1.05); /* Slight scale effect on hover */
+}
+
+.single-button {
+  justify-content: center; /* If only one button, center it vertically */
 }
 </style>

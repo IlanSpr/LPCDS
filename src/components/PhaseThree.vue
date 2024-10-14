@@ -57,7 +57,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh; /* Fixer la hauteur pour éviter le scroll */
+  height: 40vh; /* Fixer la hauteur pour éviter le scroll */
   overflow: hidden; /* Éviter le défilement */
 }
 
@@ -78,11 +78,11 @@ export default {
 
 .category-list {
   display: grid; /* Utiliser la grille pour les thèmes */
-  grid-template-columns: repeat(6, 1fr); /* 6 colonnes maximum */
+  grid-template-columns: repeat(4, 1fr); /* 4 colonnes maximum */
   gap: 20px; /* Espace entre les thèmes */
   margin-top: 50px; /* Espace au-dessus de la liste */
   width: 100%; /* Largeur complète */
-  max-width: 1200px; /* Largeur max */
+  max-width: 800px; /* Largeur max */
 }
 
 .base-button {
