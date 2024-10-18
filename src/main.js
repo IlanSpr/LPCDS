@@ -4,13 +4,8 @@ import router from './router'
 
 const app = createApp(App)
 
-router.beforeEach((to, from, next) => {
-  if (to.path === '/') {
-    next('/home') // Redirection to /home
-  } else {
-    next()
-  }
-})
-
+// Use the router
 app.use(router)
+
+// Mount the app
 app.mount('#app')

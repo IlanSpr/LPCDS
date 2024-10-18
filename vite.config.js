@@ -3,6 +3,7 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 
 export default defineConfig({
+  base: './', // Utiliser un chemin relatif pour que les fichiers soient trouvés après empaquetage
   plugins: [vue()],
   resolve: {
     alias: {
