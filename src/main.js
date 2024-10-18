@@ -6,7 +6,7 @@ const app = createApp(App)
 
 router.beforeEach((to, from, next) => {
   if (to.path === '/') {
-    next('/home') // Redirection vers /home
+    next('/home') // Redirection to /home
   } else {
     next()
   }

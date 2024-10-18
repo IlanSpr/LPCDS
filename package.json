@@ -8,10 +8,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
-    "format": "prettier --write src/",
-    "serve:electron": "vue-cli-service electron:serve",
-    "build:electron": "vue-cli-service electron:build",
-    "electron": "electron ."
+    "format": "prettier --write src/"
   },
   "dependencies": {
     "vue": "^3.4.29",
