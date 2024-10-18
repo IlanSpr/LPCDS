@@ -1,14 +1,19 @@
 {
   "name": "lpcds",
   "version": "0.0.0",
+  "description": "Quiz app for LPCDS",
+  "author": "Egnis",
   "private": true,
   "type": "module",
+  "main": "src/background.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
-    "format": "prettier --write src/"
+    "format": "prettier --write src/",
+    "electron": "electron .",
+    "electron:build": "electron-builder"
   },
   "dependencies": {
     "vue": "^3.4.29",
@@ -19,9 +24,26 @@
     "@vitejs/plugin-vue": "^5.0.5",
     "@vue/eslint-config-prettier": "^9.0.0",
     "electron": "^33.0.1",
+    "electron-builder": "^25.1.8",
     "eslint": "^8.57.0",
     "eslint-plugin-vue": "^9.23.0",
     "prettier": "^3.2.5",
     "vite": "^5.3.1"
+  },
+  "build": {
+    "appId": "com.example.lpcds",
+    "productName": "LPCDS",
+    "files": [
+      "dist/**/*",
+      "node_modules/**/*",
+      "package.json",
+      "src/background.js"
+    ],
+    "directories": {
+      "output": "release"
+    },
+    "win": {
+      "target": "nsis"
+    }
   }
 }
