@@ -70,7 +70,6 @@ footer {
   justify-content: space-between;
 }
 
-/* Style pour les boutons */
 button {
   background-color: white;
   color: black;

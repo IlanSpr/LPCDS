@@ -9,7 +9,7 @@ import AdminPage from './components/AdminPage.vue'
 
 // Define the routes
 const routes = [
-  { path: '/', redirect: '/home' }, // Redirect from root to home
+  { path: '/', redirect: '/home' },
   { path: '/home', component: HomePage, name: 'HomePage' },
   { path: '/phase-two', component: PhaseTwo, name: 'PhaseTwo' },
   { path: '/theme-timer/:categoryName', component: ThemeTimer, name: 'ThemeTimer' },

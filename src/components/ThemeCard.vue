@@ -82,7 +82,7 @@ button {
 }
 
 .delete-btn {
-  color: black; /* Text color for delete button */
+  color: black;
 }
 
 .theme-card.inactive {

@@ -78,12 +78,12 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between; /* Distributes items evenly */
-  height: 100vh; /* Full viewport height */
-  max-width: 800px; /* Center column with max width of 800px */
-  margin: 0 auto; /* Center horizontally */
+  justify-content: space-between;
+  height: 100vh;
+  max-width: 800px;
+  margin: 0 auto;
   background-color: #add8e6;
-  padding: 20px; /* Add padding */
+  padding: 20px;
 }
 
 .return-button {
@@ -100,26 +100,26 @@ export default {
 
 .theme-box {
   text-align: center;
-  font-size: 42px; /* Larger font size for the theme */
+  font-size: 42px;
   font-weight: bold;
   color: white;
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.7);
-  margin-top: 20px; /* Add space from top */
+  margin-top: 20px;
 }
 
 .timer {
-  font-size: 72px; /* Large timer */
+  font-size: 72px;
   font-weight: bold;
   color: white;
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.7);
-  margin: 0 auto; /* Centered */
+  margin: 0 auto;
 }
 
 .question-box {
-  font-size: 32px; /* Larger question font */
+  font-size: 32px;
   font-weight: bold;
   color: white;
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.7);
-  margin-bottom: 80px; /* Margin at the bottom */
+  margin-bottom: 80px;
 }
 </style>

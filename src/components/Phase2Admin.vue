@@ -147,11 +147,11 @@ h3 {
   height: 60px;
   min-width: 120px;
   max-width: 180px;
-  text-align: center; /* Centre le nom de la catégorie */
+  text-align: center;
 }
 
 .inactive {
-  opacity: 0.5; /* Grise les cartes inactives */
+  opacity: 0.5;
 }
 
 .add-category-card {

@@ -1,12 +1,7 @@
 <template>
   <div class="theme-timer">
-    <!-- Bouton retour, apparaît quand le timer atteint 0 -->
     <button class="return-button" v-if="timer === 0" @click="returnToPhaseTwo">←</button>
-
-    <!-- Titre de la catégorie, aligné en haut de la page -->
     <h1 class="category-title">{{ categoryName }}</h1>
-
-    <!-- Timer centré -->
     <div class="timer" @click="startTimer">
       <h2>{{ formattedTime }}</h2>
     </div>
@@ -69,12 +64,11 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh; /* Hauteur complète de l'écran */
+  height: 100vh;
   padding: 20px;
   position: relative;
 }
 
-/* Bouton retour en haut à gauche */
 .return-button {
   position: absolute;
   top: 10px;
@@ -87,7 +81,6 @@ export default {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-/* Titre de la catégorie, positionné en haut de l'écran */
 .category-title {
   position: absolute;
   top: 20px;
@@ -96,13 +89,12 @@ export default {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-/* Timer centré dans l'écran */
 .timer {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  max-width: 800px; /* Colonne centrale de 800px max */
+  max-width: 800px;
   font-size: 3rem;
   color: white;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);

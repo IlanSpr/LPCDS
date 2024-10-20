@@ -75,22 +75,22 @@ export default {
 .form-group {
   display: flex;
   flex-direction: column;
-  gap: 10px; /* Adds space between inputs */
+  gap: 10px;
 }
 
 .wide-input {
-  width: 100%; /* Ensures inputs fit within the modal */
-  padding: 10px; /* Increased padding for better appearance */
+  width: 100%;
+  padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  box-sizing: border-box; /* Ensure padding is included in width */
-  font-family: 'Roboto', sans-serif; /* Use Roboto font for inputs */
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
 }
 
 .button-group {
   display: flex;
   justify-content: space-between;
-  margin-top: 20px; /* Adds space between the last input and buttons */
+  margin-top: 20px;
 }
 
 button {
@@ -98,7 +98,7 @@ button {
   color: black;
   border: 1px solid #ccc;
   border-radius: 4px;
-  padding: 8px 16px; /* Increased padding for better appearance */
+  padding: 8px 16px;
   cursor: pointer;
   transition: background-color 0.3s;
 }

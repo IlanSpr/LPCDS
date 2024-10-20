@@ -53,7 +53,7 @@ export default {
     background-color 0.3s,
     color 0.3s;
   cursor: pointer;
-  border: none; /* Remove the border */
+  border: none;
 }
 
 .btn:hover {

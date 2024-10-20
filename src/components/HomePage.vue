@@ -29,22 +29,22 @@ export default {
 }
 
 h1 {
-  color: white; /* White text color */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Shadow effect */
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
   margin-bottom: 20px;
   font-size: 48px;
-  position: absolute; /* Positioning */
-  top: 20px; /* Position from the top */
+  position: absolute;
+  top: 20px;
   left: 50%;
-  transform: translateX(-50%); /* Center horizontally */
+  transform: translateX(-50%);
 }
 
 .button-column {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center; /* Center the buttons */
-  height: calc(100vh - 100px); /* Allow space for the h1 */
-  gap: 25px; /* Spacing between buttons */
+  align-items: center;
+  height: calc(100vh - 100px);
+  gap: 25px;
 }
 </style>

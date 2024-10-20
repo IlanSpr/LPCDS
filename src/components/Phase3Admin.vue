@@ -164,10 +164,10 @@ h3 {
 }
 
 .add-theme-card {
-  cursor: pointer; /* Show pointer on hover */
-  display: flex; /* Align content */
-  align-items: center; /* Center vertically */
-  justify-content: center; /* Center horizontally */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .button-container {
@@ -204,7 +204,7 @@ button:hover {
 
 .timer-message {
   margin-left: 20px;
-  color: green;
+  color: lightsalmon;
 }
 
 input {
@@ -215,15 +215,14 @@ input {
   margin-left: 10px;
 }
 
-/* Style for the add-theme-card */
 .theme-card.add-theme-card {
-  background-color: white; /* Match theme card background */
-  border: 1px solid #ccc; /* Match theme card border */
-  border-radius: 10px; /* Match theme card border-radius */
-  padding: 15px; /* Match theme card padding */
-  display: flex; /* Align content */
-  align-items: center; /* Center vertically */
-  justify-content: center; /* Center horizontally */
-  cursor: pointer; /* Show pointer on hover */
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
 </style>

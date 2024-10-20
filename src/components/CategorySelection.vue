@@ -16,16 +16,6 @@
 
 <script>
 export default {
-  data() {
-    return {
-      categories: [
-        { name: 'Cinéma', selected: false },
-        { name: 'Musique', selected: false },
-        { name: 'Jeux-vidéo', selected: false }
-        // Tu peux ajouter plus de catégories ici
-      ]
-    }
-  },
   methods: {
     selectCategory(index) {
       if (!this.categories[index].selected) {

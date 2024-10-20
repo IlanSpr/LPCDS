@@ -25,24 +25,24 @@ export default {
 <style scoped>
 .admin-page {
   padding: 20px;
-  max-height: 100vh; /* Limite la hauteur à la taille de l'écran */
-  overflow-y: auto; /* Active le défilement vertical */
+  max-height: 100vh;
+  overflow-y: auto;
 }
 
 .scrollable-content {
   display: flex;
   flex-direction: column;
-  gap: 20px; /* Optionnel, pour espacer les éléments */
+  gap: 20px;
 }
 
 .back-button {
-  position: absolute; /* Position du bouton en haut à gauche */
+  position: absolute;
   top: 10px;
   left: 10px;
   padding: 10px 20px;
   font-size: 2rem;
-  background-color: transparent; /* Bouton transparent */
-  color: white; /* Texte blanc */
+  background-color: transparent;
+  color: white;
   border: none;
   cursor: pointer;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
@@ -51,7 +51,7 @@ export default {
 }
 
 .header {
-  color: white; /* Texte blanc */
-  text-shadow: 2px 2px 2px black; /* Ombre du texte */
+  color: white;
+  text-shadow: 2px 2px 2px black;
 }
 </style>

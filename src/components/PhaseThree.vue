@@ -57,47 +57,47 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 40vh; /* Fixer la hauteur pour éviter le scroll */
-  overflow: hidden; /* Éviter le défilement */
+  height: 40vh;
+  overflow: hidden;
 }
 
 .back-button {
-  position: absolute; /* Positionner le bouton en haut à gauche */
+  position: absolute;
   top: 10px;
   left: 10px;
   padding: 10px 20px;
   font-size: 2rem;
-  background-color: transparent; /* Fond transparent */
-  color: white; /* Couleur du texte */
+  background-color: transparent;
+  color: white;
   border: none;
   cursor: pointer;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Ombre du texte */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   transition: background-color 0.3s;
-  text-decoration: none; /* Retirer le soulignement */
+  text-decoration: none;
 }
 
 .category-list {
-  display: grid; /* Utiliser la grille pour les thèmes */
-  grid-template-columns: repeat(4, 1fr); /* 4 colonnes maximum */
-  gap: 20px; /* Espace entre les thèmes */
-  margin-top: 50px; /* Espace au-dessus de la liste */
-  width: 100%; /* Largeur complète */
-  max-width: 800px; /* Largeur max */
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 50px;
+  width: 100%;
+  max-width: 800px;
 }
 
 .base-button {
-  width: 150px; /* Largeur fixe pour les boutons */
-  height: 150px; /* Hauteur fixe pour les boutons */
-  font-size: 24px; /* Agrandir la taille du texte */
-  text-align: center; /* Centrer le texte */
-  display: flex; /* Centrer le contenu verticalement */
-  justify-content: center; /* Centrer horizontalement */
-  align-items: center; /* Centrer verticalement */
+  width: 150px;
+  height: 150px;
+  font-size: 24px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .inactive {
-  opacity: 0.3; /* Transparence pour les inactifs */
-  color: grey; /* Couleur grisée */
-  cursor: not-allowed; /* Curseur non autorisé */
+  opacity: 0.3;
+  color: grey;
+  cursor: not-allowed;
 }
 </style>

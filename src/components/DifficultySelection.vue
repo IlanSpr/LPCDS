@@ -44,8 +44,9 @@ export default {
 
       if (phase3Themes && index !== null) {
         const selectedTheme = phase3Themes[index]
-        this.showEasy = !!selectedTheme.easyQuestion?.trim() // Show if easy question is non-empty
-        this.showHard = !!selectedTheme.hardQuestion?.trim() // Show if hard question is non-empty
+        // Show only if the question is non-empty
+        this.showEasy = !!selectedTheme.easyQuestion?.trim()
+        this.showHard = !!selectedTheme.hardQuestion?.trim()
       }
     },
     selectDifficulty(difficulty) {
@@ -58,8 +59,8 @@ export default {
 
 <style scoped>
 .difficulty-selection {
-  width: 100vw; /* Full viewport width */
-  height: 100vh; /* Full viewport height */
+  width: 100vw;
+  height: 100vh;
   position: fixed;
   top: 0;
   left: 0;
@@ -67,7 +68,7 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #add8e6; /* Light blue background */
+  background-color: #add8e6;
 }
 
 .back-button {
@@ -89,13 +90,13 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 30px; /* Add space between buttons */
+  gap: 30px;
 }
 
 .difficulty-button {
   width: 300px;
-  height: 150px; /* Increased button height */
-  font-size: 2rem; /* Increased font size */
+  height: 150px;
+  font-size: 2rem;
   background-color: #f0f0f0;
   border-radius: 8px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
@@ -103,14 +104,14 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: transform 0.2s; /* Smooth hover effect */
+  transition: transform 0.2s;
 }
 
 .difficulty-button:hover {
-  transform: scale(1.05); /* Slight scale effect on hover */
+  transform: scale(1.05);
 }
 
 .single-button {
-  justify-content: center; /* If only one button, center it vertically */
+  justify-content: center;
 }
 </style>
